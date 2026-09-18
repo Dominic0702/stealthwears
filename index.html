@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="STEALTH — premium Nigerian streetwear.">
+    <title>STEALTH — Streetwear</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement">FREE DELIVERY ON ORDERS OVER ₦50,000</div>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="logo">STEALTH</a>
+
+        <button class="mobile-menu-toggle" aria-label="Open navigation" onclick="toggleMobileMenu()">☰</button>
+
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="t-shirts.html">T-Shirts</a>
+            <a href="jackets.html">Jackets</a>
+            <a href="jorts-joggers.html">Jorts/Joggers</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <button aria-label="Search" onclick="toggleSearch()">⌕</button>
+            <button aria-label="Account" onclick="openAccount()">♙</button>
+            <button aria-label="Cart" onclick="openCart()">🛒<span id="cartCount">0</span></button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="new-arrivals.html">New Arrivals</a>
+        <a href="t-shirts.html">T-Shirts</a>
+        <a href="jackets.html">Jackets</a>
+        <a href="jorts-joggers.html">Jorts/Joggers</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Search Bar -->
+    <div id="searchBar" class="search-bar">
+        <input id="searchInput" type="search" placeholder="Search products..." oninput="filterProducts()">
+    </div>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+            <img src="images/BG 1.jpeg" alt="STEALTH streetwear collection">
+            <div class="hero-overlay">
+                <p>STEALTH / 2026</p>
+                <h1>MOVE<br>IN SILENCE.</h1>
+                <a href="new-arrivals.html" class="btn btn-light">SHOP THE DROP</a>
+            </div>
+        </section>
+
+        <!-- New Arrivals -->
+        <section class="section">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">JUST IN</p>
+                    <h2>NEW ARRIVALS</h2>
+                </div>
+                <a href="new-arrivals.html" class="text-link">VIEW ALL →</a>
+            </div>
+
+            <div class="product-grid">
+
+                <article class="product-card" data-name="Stealth Core Tee">
+                    <div class="product-image">
+                        <span class="badge">NEW</span>
+                        <img src="images/TEE 1.jpeg" alt="Stealth Core Tee">
+                        <button class="quick-add" onclick="addToCart('STEALTH CORE TEE', 85000)">ADD TO CART</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>STEALTH CORE TEE</h3>
+                        <p>BLACK / WHITE / RED</p>
+                        <strong>₦85,000</strong>
+                    </div>
+                </article>
+
+                <article class="product-card" data-name="Stealth Signal Joggers">
+                    <div class="product-image">
+                        <span class="badge">NEW</span>
+                        <img src="images/JOG 1.jpeg" alt="Stealth Signal Joggers">
+                        <button class="quick-add" onclick="addToCart('STEALTH SIGNAL JOGGERS', 90000)">ADD TO CART</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>STEALTH SIGNAL JOGGERS</h3>
+                        <p>BLACK / ASH</p>
+                        <strong>₦90,000</strong>
+                    </div>
+                </article>
+
+                <article class="product-card" data-name="Stealth Denim Jorts">
+                    <div class="product-image">
+                        <img src="images/JORT 1.jpeg" alt="Stealth Denim Jorts">
+                        <button class="quick-add" onclick="addToCart('STEALTH DENIM JORTS', 145000)">ADD TO CART</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>STEALTH DENIM JORTS</h3>
+                        <p>BLACK / GREY</p>
+                        <strong>₦145,000</strong>
+                    </div>
+                </article>
+
+                <article class="product-card" data-name="Stealth Oversized Jacket">
+                    <div class="product-image">
+                        <img src="images/JAK 1.jpeg" alt="Stealth Oversized Jacket">
+                        <button class="quick-add" onclick="addToCart('STEALTH OVERSIZED JACKET', 135000)">ADD TO CART</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>STEALTH OVERSIZED JACKET</h3>
+                        <p>COLOUR OF CHOICE</p>
+                        <strong>₦135,000</strong>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Collection Feature -->
+        <section class="collection-feature">
+            <div class="collection-copy">
+                <p class="eyebrow">THE LATEST COLLECTION</p>
+                <h2>BUILT FOR<br>THE UNSEEN.</h2>
+                <p>
+                    Minimal silhouettes. Heavyweight fabrics.
+                    Nigerian energy. Discover the latest STEALTH collection.
+                </p>
+                <a href="new-arrivals.html" class="btn btn-dark">EXPLORE COLLECTION</a>
+            </div>
+
+            <img src="images/BG 2.jpeg" alt="STEALTH collection">
+        </section>
+
+        <!-- Shop By Category -->
+        <section class="section">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">SHOP BY CATEGORY</p>
+                    <h2>FIND YOUR PIECE</h2>
+                </div>
+            </div>
+
+            <div class="category-grid">
+
+                <a href="t-shirts.html" class="category-card">
+                    <img src="images/Shop 1.jpeg" alt="T-Shirts">
+                    <span>T-SHIRTS →</span>
+                </a>
+
+                <a href="jackets.html" class="category-card">
+                    <img src="images/JAK 2.jpeg" alt="Jackets">
+                    <span>JACKETS →</span>
+                </a>
+
+                <a href="jorts-joggers.html" class="category-card">
+                    <img src="images/JOG 1.jpeg" alt="Jorts and Joggers">
+                    <span>JORTS/JOGGERS →</span>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Manifesto -->
+        <section class="manifesto">
+            <p class="eyebrow">STEALTH WORLD</p>
+            <h2>NOT MADE TO<br>BLEND IN.</h2>
+            <p>
+                STEALTH is a Lagos-born streetwear label built around
+                confidence, movement and quiet individuality.
+            </p>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <p class="eyebrow">STAY IN THE KNOW</p>
+            <h2>GET 10% OFF YOUR FIRST ORDER.</h2>
+
+            <form onsubmit="subscribe(event)">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">SUBSCRIBE →</button>
+            </form>
+
+            <small id="subscribeMessage"></small>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div>
+            <a class="logo" href="index.html">STEALTH</a>
+            <p>Quiet confidence. Loud presence.</p>
+        </div>
+
+        <div>
+            <h4>SHOP</h4>
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="t-shirts.html">T-Shirts</a>
+            <a href="jackets.html">Jackets</a>
+            <a href="jorts-joggers.html">Jorts/Joggers</a>
+        </div>
+
+        <div>
+            <h4>HELP</h4>
+            <a href="contact.html">Contact</a>
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+        </div>
+
+        <div>
+            <h4>FOLLOW</h4>
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">X</a>
+        </div>
+
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cartDrawer" class="cart-drawer">
+        <div class="cart-top">
+            <h3>YOUR CART</h3>
+            <button onclick="toggleCart()">×</button>
+        </div>
+
+        <div id="cartItems" class="cart-items"></div>
+
+        <div class="cart-bottom">
+            <div>
+                <span>Subtotal</span>
+                <strong id="cartTotal">₦0</strong>
+            </div>
+
+            <button class="checkout" onclick="openCheckout()">CHECKOUT</button>
+        </div>
+    </div>
+
+    <!-- Cart Backdrop -->
+    <div id="cartBackdrop" class="backdrop" onclick="toggleCart()"></div>
+
+    <!-- Account Registration Modal -->
+    <div id="accountModal" class="modal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeAccount()">×</button>
+
+            <h2>Create Account</h2>
+            <p>Register with STEALTH to make checkout faster.</p>
+
+            <form onsubmit="register(event)">
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input id="regName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" minlength="6" required>
+                </div>
+
+                <button class="full-btn">REGISTER</button>
+            </form>
+
+            <div id="registerMessage" class="success"></div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-box">
+
+            <button class="modal-close" onclick="closeCheckout()">×</button>
+
+            <h2>Checkout</h2>
+
+            <p>
+                Total:
+                <strong id="checkoutTotal">₦0</strong>
+            </p>
+
+            <div id="paymentForm">
+
+                <!-- Payment Options -->
+                <div class="payment-options">
+
+                    <button class="payment-option" type="button" onclick="choosePayment('bank')">
+                        <strong>ONLINE BANK TRANSFER</strong>
+                        <span>Pay directly from your bank.</span>
+                    </button>
+
+                    <button class="payment-option" type="button" onclick="choosePayment('card')">
+                        <strong>ATM / CARD</strong>
+                        <span>Pay using your debit or ATM card.</span>
+                    </button>
+
+                </div>
+
+                <!-- Bank Transfer Details -->
+                <div id="bankDetails" class="bank-box">
+                    Bank:
+                    <strong>STEALTH FASHION LTD</strong>
+                    <br>
+
+                    Account Number:
+                    <strong>0123456789</strong>
+                    <br>
+
+                    Bank:
+                    <strong>Example Bank</strong>
+                    <br>
+
+                    <small>Use your order name as the transfer reference.</small>
+                </div>
+
+                <!-- Card Details -->
+                <div id="cardDetails" class="hidden">
+
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input placeholder="0000 0000 0000 0000">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Expiry / CVV</label>
+                        <input placeholder="MM/YY   CVV">
+                    </div>
+
+                </div>
+
+                <!-- Payment Confirmation -->
+                <button class="full-btn" onclick="confirmPayment()">
+                    I HAVE MADE PAYMENT
+                </button>
+
+            </div>
+
+            <!-- Payment Received -->
+            <div id="paymentReceived" class="success hidden">
+
+                <h3>PAYMENT RECEIVED</h3>
+
+                <p>
+                    Your payment has been marked as received.
+                </p>
+
+                <button class="full-btn" style="margin-top:15px" onclick="finishOrder()">
+                    CONTINUE
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
