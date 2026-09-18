@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEALTH — Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement">FREE DELIVERY ON ORDERS OVER ₦50,000</div>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="logo">STEALTH</a>
+
+        <button class="mobile-menu-toggle" aria-label="Open navigation" onclick="toggleMobileMenu()">☰</button>
+
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="t-shirts.html">T-Shirts</a>
+            <a href="jackets.html">Jackets</a>
+            <a href="jorts-joggers.html">Jorts/Joggers</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <button aria-label="Search" onclick="toggleSearch()">⌕</button>
+            <button aria-label="Account" onclick="openAccount()">♙</button>
+            <button aria-label="Cart" onclick="openCart()">🛒<span id="cartCount">0</span></button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="new-arrivals.html">New Arrivals</a>
+        <a href="t-shirts.html">T-Shirts</a>
+        <a href="jackets.html">Jackets</a>
+        <a href="jorts-joggers.html">Jorts/Joggers</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Main Contact Content -->
+    <main class="contact-page">
+        <p class="eyebrow">GET IN TOUCH</p>
+
+        <h1 style="font-size: clamp(45px, 8vw, 100px); letter-spacing: -5px; margin-top: 12px;">
+            CONTACT STEALTH.
+        </h1>
+
+        <!-- Contact Cards -->
+        <div class="contact-grid">
+
+            <!-- Email -->
+            <div class="contact-card">
+                <div class="contact-icon">✉</div>
+                <h3>EMAIL</h3>
+                <a href="mailto:hello@stealthwears.com">stealthwears@gmail.com</a>
+            </div>
+
+            <!-- Phone -->
+            <div class="contact-card">
+                <div class="contact-icon">☎</div>
+                <h3>PHONE</h3>
+                <a href="tel:+2348113704781">+234 811 370 4781</a>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="contact-card">
+                <div class="contact-icon">◉</div>
+                <h3>WHATSAPP</h3>
+                <a href="https://wa.me/2348113704781">+234 811 370 4781 Chat with us on WhatsApp</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <!-- Brand -->
+        <div>
+            <a class="logo" href="index.html">STEALTH</a>
+            <p>Quiet confidence. Loud presence.</p>
+        </div>
+
+        <!-- Shop -->
+        <div>
+            <h4>SHOP</h4>
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="t-shirts.html">T-Shirts</a>
+            <a href="jackets.html">Jackets</a>
+            <a href="jorts-joggers.html">Jorts/Joggers</a>
+        </div>
+
+        <!-- Help -->
+        <div>
+            <h4>HELP</h4>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <!-- Social Media -->
+        <div>
+            <h4>FOLLOW</h4>
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">X</a>
+        </div>
+
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cartDrawer" class="cart-drawer">
+        <div class="cart-top">
+            <h3>YOUR CART</h3>
+            <button onclick="toggleCart()">×</button>
+        </div>
+
+        <div id="cartItems" class="cart-items"></div>
+
+        <div class="cart-bottom">
+            <div>
+                <span>Subtotal</span>
+                <strong id="cartTotal">₦0</strong>
+            </div>
+
+            <button class="checkout" onclick="openCheckout()">CHECKOUT</button>
+        </div>
+    </div>
+
+    <!-- Cart Backdrop -->
+    <div id="cartBackdrop" class="backdrop" onclick="toggleCart()"></div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

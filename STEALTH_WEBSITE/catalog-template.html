@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEALTH — PRODUCTS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement">FREE DELIVERY ON ORDERS OVER ₦50,000</div>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="logo">STEALTH</a>
+
+        <button class="mobile-menu-toggle" aria-label="Open navigation" onclick="toggleMobileMenu()">☰</button>
+
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="t-shirts.html">T-Shirts</a>
+            <a href="jackets.html">Jackets</a>
+            <a href="jorts-joggers.html">Jorts/Joggers</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <button aria-label="Search" onclick="toggleSearch()">⌕</button>
+            <button aria-label="Account" onclick="openAccount()">♙</button>
+            <button aria-label="Cart" onclick="openCart()">🛒<span id="cartCount">0</span></button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="new-arrivals.html">New Arrivals</a>
+        <a href="t-shirts.html">T-Shirts</a>
+        <a href="jackets.html">Jackets</a>
+        <a href="jorts-joggers.html">Jorts/Joggers</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Search Bar -->
+    <div id="searchBar" class="search-bar">
+        <input id="searchInput" type="search" placeholder="Search products..." oninput="filterProducts()">
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <p class="eyebrow">STEALTH COLLECTION</p>
+        <h1 id="pageTitle">PRODUCTS</h1>
+        <p id="pageSubtitle">Shop the latest pieces.</p>
+    </section>
+
+    <!-- Products -->
+    <main class="page-products">
+        <div id="catalogGrid" class="product-grid"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div>
+            <a class="logo" href="index.html">STEALTH</a>
+            <p>Quiet confidence. Loud presence.</p>
+        </div>
+
+        <div>
+            <h4>SHOP</h4>
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="t-shirts.html">T-Shirts</a>
+            <a href="jackets.html">Jackets</a>
+            <a href="jorts-joggers.html">Jorts/Joggers</a>
+        </div>
+
+        <div>
+            <h4>HELP</h4>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div>
+            <h4>FOLLOW</h4>
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">X</a>
+        </div>
+
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cartDrawer" class="cart-drawer">
+        <div class="cart-top">
+            <h3>YOUR CART</h3>
+            <button onclick="toggleCart()">×</button>
+        </div>
+
+        <div id="cartItems" class="cart-items"></div>
+
+        <div class="cart-bottom">
+            <div>
+                <span>Subtotal</span>
+                <strong id="cartTotal">₦0</strong>
+            </div>
+
+            <button class="checkout" onclick="openCheckout()">CHECKOUT</button>
+        </div>
+    </div>
+
+    <!-- Cart Backdrop -->
+    <div id="cartBackdrop" class="backdrop" onclick="toggleCart()"></div>
+
+    <!-- Account Modal -->
+    <div id="accountModal" class="modal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeAccount()">×</button>
+
+            <h2>Create Account</h2>
+            <p>Register with STEALTH to make checkout faster.</p>
+
+            <form onsubmit="register(event)">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input id="regName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" minlength="6" required>
+                </div>
+
+                <button class="full-btn">REGISTER</button>
+            </form>
+
+            <div id="registerMessage" class="success"></div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeCheckout()">×</button>
+
+            <h2>Checkout</h2>
+
+            <p>
+                Total:
+                <strong id="checkoutTotal">₦0</strong>
+            </p>
+
+            <!-- Payment Form -->
+            <div id="paymentForm">
+
+                <div class="payment-options">
+                    <button class="payment-option" type="button" onclick="choosePayment('bank')">
+                        <strong>ONLINE BANK TRANSFER</strong>
+                        <span>Pay directly from your bank.</span>
+                    </button>
+
+                    <button class="payment-option" type="button" onclick="choosePayment('card')">
+                        <strong>ATM / CARD</strong>
+                        <span>Pay using your debit or ATM card.</span>
+                    </button>
+                </div>
+
+                <!-- Bank Transfer Details -->
+                <div id="bankDetails" class="bank-box">
+                    Bank:
+                    <strong>STEALTH FASHION LTD</strong>
+                    <br>
+                    Account Number:
+                    <strong>0123456789</strong>
+                    <br>
+                    Bank:
+                    <strong>Example Bank</strong>
+                    <br>
+                    <small>Use your order name as the transfer reference.</small>
+                </div>
+
+                <!-- Card Details -->
+                <div id="cardDetails" class="hidden">
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input placeholder="0000 0000 0000 0000">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Expiry / CVV</label>
+                        <input placeholder="MM/YY   CVV">
+                    </div>
+                </div>
+
+                <button class="full-btn" onclick="confirmPayment()">
+                    I HAVE MADE PAYMENT
+                </button>
+            </div>
+
+            <!-- Payment Received -->
+            <div id="paymentReceived" class="success hidden">
+                <h3>PAYMENT RECEIVED</h3>
+
+                <p>Your payment has been marked as received.</p>
+
+                <button class="full-btn" style="margin-top: 15px" onclick="finishOrder()">
+                    CONTINUE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- Product Catalog Script -->
+    <script>
+        // Get the product category from the URL
+        const type = new URLSearchParams(location.search).get("type") || "new";
+
+        // Page titles and descriptions
+        const titles = {
+            new: ["NEW ARRIVALS", "Fresh pieces from STEALTH."],
+            tee: ["T-SHIRTS", "Premium STEALTH tees."],
+            jacket: ["JACKETS", "Layer up in STEALTH."],
+            bottom: ["JORTS / JOGGERS", "Street-ready bottoms."]
+        };
+
+        // Filter products according to the selected category
+        const data = {
+            new: products,
+            tee: products.filter(p => p.category === "T-Shirts"),
+            jacket: products.filter(p => p.category === "Jackets"),
+            bottom: products.filter(p => p.category === "Jorts/Joggers")
+        }[type] || products;
+
+        // Update page title and subtitle
+        document.getElementById("pageTitle").textContent = titles[type][0];
+        document.getElementById("pageSubtitle").textContent = titles[type][1];
+
+        // Generate product cards
+        document.getElementById("catalogGrid").innerHTML = data.map(p => `
+            <article class="product-card" data-name="${p.name}">
+                <div class="product-image">
+                    <img src="${p.image}" alt="${p.name}">
+                    <button class="quick-add" onclick="addToCart('${p.name}', ${p.price})">
+                        ADD TO CART
+                    </button>
+                </div>
+
+                <div class="product-info">
+                    <h3>${p.name}</h3>
+                    <p>${p.category.toUpperCase()}</p>
+                    <strong>${naira(p.price)}</strong>
+                </div>
+            </article>
+        `).join("");
+    </script>
+
+</body>
+</html>
